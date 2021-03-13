@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 import dj_database_url
-from decouple import config, Csv
 from functools import partial
 from os.path import dirname, abspath # noqa
 from pathlib import Path
@@ -85,7 +84,7 @@ defaut_db_url = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 parse_database = partial(dj_database_url.parse, conn_max_age=600)
 
 DATABASES = {
-    'default': config('DETABASE_URL',defaut_db_url, cast=parse_database)
+    'default': config('DETABASE_URL',defaut_db_url,cast=parse_database)
 }
 
 
